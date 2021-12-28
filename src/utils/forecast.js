@@ -13,10 +13,15 @@ const forecast =(lat, long, callback) =>
     else if(response.body.error)
     callback('Unable to fetch data from that location !');
     else
+    console.log(response.body);
     callback(undefined, {
       country : response.body.location.country,
       temperature : response.body.current.temperature,
-      weather_descriptions : response.body.current.weather_descriptions
+      weather_descriptions : response.body.current.weather_descriptions,
+      wind_speed : response.body.current.wind_speed,
+      feels_like : response.body.current.feelslike,
+      is_day : response.body.current.is_day,
+      local_time : response.body.location.localtime
     })
   })
 } 
